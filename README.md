@@ -8,7 +8,9 @@ external data ownership or stop an unintegrated external service from writing.
 
 Category: Projects. Local checks and the consequential Studionet lifecycle are
 verified. All eight write controls have real browser-wallet evidence, including
-recovery, cancellation and native refunds. Portal review acceptance is not claimed.
+recovery, cancellation and native refunds. The Projects submission is confirmed
+Pending review; Portal acceptance is not claimed. See the
+[submission record and exact How-to](docs/SUBMISSION.md).
 
 ## Live App
 

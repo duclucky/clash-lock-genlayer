@@ -1,0 +1,23 @@
+{
+  "project": "ClashLock",
+  "track": "Builder",
+  "category": "Projects",
+  "status": "Pending review",
+  "submissionId": "cd567f7e-17cc-4607-bebc-74f3252c965f",
+  "contributionDate": "2026-10-15",
+  "submittedDate": "2026-10-15",
+  "verificationMethod": "Authenticated My submissions UI; expanded details; verified again in a new tab after user CAPTCHA handoff",
+  "verificationUrl": "https://portal.genlayer.foundation/my-submissions?q=ClashLock",
+  "howToStepCount": 5,
+  "descriptionCharacters": 877,
+  "evidenceCount": 3,
+  "evidenceUrls": [
+    "https://explorer-studio.genlayer.com/address/0x3538571716638eDCEbF45BC7438FD7DdD4F3bA02",
+    "https://github.com/duclucky/clash-lock-genlayer/blob/main/docs/evidence/studionet/browser-journal.json",
+    "https://github.com/duclucky/clash-lock-genlayer"
+  ],
+  "screenshot": "browser/portal-submitted.jpg",
+  "stewardAcceptanceVerified": false,
+  "pointsClaimed": false,
+  "customLogoUploadVerified": false
+}

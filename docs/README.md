@@ -10,8 +10,8 @@ production source. No network execution is inferred from a specification.
 - Project name: ClashLock
 - Project slug: clash-lock
 - Category: Projects
-- Status: BUILDING (Phase4 specification complete; execution pending)
-- Repository: independent child Git repository; public remote pending Phase11
+- Status: VERIFIED EXECUTION; Projects submission Pending review (October15,2026)
+- Repository: https://github.com/duclucky/clash-lock-genlayer (public, independent child)
 - Target network: Studionet61999 under verified unavailable-Studio-Dev D1 fallback
 
 ## One-sentence product hook
@@ -419,7 +419,10 @@ lifecycle,each native exit proof,complete browser-wallet lifecycle,public repo
 hygiene,CI if configured,production Vercel HTTP200/body check,accurate README,
 unchanged objective grader -Project child -Category projects with0BLOCKER,
 copy-ready packet,truthful submission status,registry/postmortem update and final
-entire-master reread audit. All are pending until verified;no blanket DONE here.
+entire-master reread audit. Contract, tests, real-network/browser execution,
+hosting and submission are verified in VERIFICATION.md and SUBMISSION.md.
+The final entire-master audit is retained in the private workspace completion
+ledger; submission status does not imply steward acceptance.
 
 ## Honest limitations and kill criteria
 

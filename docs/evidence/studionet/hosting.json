@@ -1,6 +1,6 @@
 {
   "url": "https://clash-lock-genlayer.vercel.app",
-  "deployment": "dpl_4pxdRsvKQf78Ea9qcoaoQKBM58Bn",
+  "deployment": "dpl_2sZUQ1TUz9fW3eWUwNtJqDhhnbQ3",
   "state": "READY",
   "rootDirectory": "frontend",
   "framework": "vite",
@@ -12,7 +12,7 @@
   "proxyChainId": 61999,
   "uploadFileCount": 21,
   "environmentFilesUploaded": 0,
-  "verifiedAt": "2026-10-15T12:37:53Z",
-  "previousDeployment": "dpl_GpNTerSTTsLRRtFUbBgwwWsKPJSV",
-  "verifiedSourceCommit": "b98e93683277e5225cba101f423d1128a530592b"
+  "verifiedAt": "2026-10-15T14:00:30Z",
+  "previousDeployment": "dpl_4pxdRsvKQf78Ea9qcoaoQKBM58Bn",
+  "verifiedSourceCommit": "fa0a4b3e511dbb2679c9d353b519e5104554b8bf"
 }

@@ -375,3 +375,28 @@ Runtime files excluding `*.test.*` returned no such matches. This false positive
 is reviewed against9actual browser transactions and native1GEN/2GEN receipts;
 tests were not removed/renamed and the grader was not changed. This estimate is
 not an official score. The payable-helper warning remains separately reviewed.
+
+## Phase15 submission and Phase16 delivery record
+
+Public CI38747242897 succeeded for exact published commit
+fa0a4b3e511dbb2679c9d353b519e5104554b8bf before submission. Fresh production HEAD
+returnedHTTP200 at14:25:54UTC; GET contained the ClashLock title and React root.
+The title includes a subtitle; an initially too-strict exact-title check was
+corrected to the actual requirement rather than changing the product.
+
+Portal How-to was expanded to five steps with fixed URLs, real historical demo
+IDs, generated-ID route explanations and exact control labels. The form showed
+7/7 required fields. A Submit attempt was blocked by CAPTCHA and created no
+submission then. The user chose to complete CAPTCHA personally. Afterwards,
+My submissions showed ClashLock / Builder Projects / Pending review. A newly
+opened authenticated tab independently confirmed the saved record and expanded
+details, including all three evidence URLs and the877-character description.
+Submission ID:cd567f7e-17cc-4607-bebc-74f3252c965f. No second Submit was sent and
+no steward acceptance or points are inferred. portal-submission.json and the
+actual filtered screenshot retain this evidence.
+
+Phase16 records the seven-part architecture fingerprint, validated/unproven
+boundaries and substantial gateway milestone in the workspace registry.
+POSTMORTEM.md records technical lessons. The final documentation commit's own
+CI is checked separately against its exact published HEAD in the private final
+audit; this avoids a self-referential commit claiming its future CI result.
