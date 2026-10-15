@@ -81,7 +81,7 @@ contract balance were0GEN at that checkpoint. [Verification](docs/VERIFICATION.m
 [specification and authority matrices](docs/README.md).
 
 `npm run check` verifies semantic lint,80Python direct tests,14receipt tests,
-43frontend tests,the real SDK adapter boundary,TypeScript and production build.
+44frontend tests,the real SDK adapter boundary,TypeScript and production build.
 Direct-mode mocked tests are separate from real network consensus evidence.
 
 Hosting uses Vercel's Vite preset,root directory `frontend/`,build command

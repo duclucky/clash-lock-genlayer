@@ -149,7 +149,7 @@ Missing contract configuration produces a clear setup message,not sample data.
 
 ### Visual preservation constraints
 
-The project-local ui-ux-pro-max engine will select the design system using this
+The project-local ui-ux-pro-max engine selected the design system using this
 full nine-route brief. Style is a calm,clear collaborative productivity workspace
 with medium density;the app must remain a product,not a reviewer dashboard.
 After3A preserve tokens,typography,component style,page arrangement and navigation.
@@ -283,7 +283,7 @@ acquisition authenticates policy publication only,not outside-world facts.
 | Namespace universe/members | Bounded canonical definition | Creator transaction | Exact authenticated creator for this protocol | EOA origin,unique ID,3distinct valid members,text bounds,definition hash,constant network/contract/version | definition includes namespace,creator,members,resource,clock,close,policy identity | immutable unique ID/version,no overwrite | Defines protocol universe only | Revert before mutation | all admission/deposit/fence changes | valid hash but wrong contract/network/version/creator/member;injected authority;unchanged ledger |
 | Intended scope/mode and deposit assent | Canonical reservation | Requester transaction | Exact registered EOA | member,expected namespace digest,unique requestID,mode,text,duration,exact1GEN and recomputed definition digest | namespace,request,owner,scope,mode,time,version,contract,chain,policy | unique ID,created<=now,review cutoff,no rewrite | Compare intended scope,not alleged performance | Revert or RETRYABLE before consequence | fence,third-party credit,settlement | correct bytes/hash but wrong actor/entity/objective/policy;forged origin,replay,future time;unchanged hard state |
 | Incumbent occupancy | Exact canonical HELD records | Contract transitions | Prior accepted/finalized state | provenance recheck,live exact ID set,mode,owner,scope digest,epoch | namespace,lock,owner,fence,scope,expiry | now<expiry,append-only IDs,epoch and fence never reused | Compare each incumbent scope once | RETRYABLE before mutation | new fence,old lock changes,refund | missing/extra/duplicate ID,stale epoch,wrong namespace/hash;unchanged accounting |
-| Mode policy | Exact dated raw W3C response | Independent W3C origin | Fixed official HTTPS source | HTTP,size,source version,exact fetched digest,required shared/exclusive markers | fixed URL/hash included in namespace and request authority | Refetch each review;change/unavailability blocks | Interpretation context;mode enforcement is deterministic | RETRYABLE,no penalties | lock issuance/refund classification | actor-hosted hash-valid copy wrong origin cannot be selected;changed body,404,wrong version,no consequence |
+| Mode policy | Exact dated raw W3C response | Independent W3C origin | Fixed official HTTPS source | HTTP,size,source version,exact fetched digest,the exact raw representation containing shared/exclusive policy | fixed URL/hash included in namespace and request authority | Refetch each review;change/unavailability blocks | Interpretation context;mode enforcement is deterministic | RETRYABLE,no penalties | lock issuance/refund classification | actor-hosted hash-valid copy wrong origin cannot be selected;changed body,404,wrong version,no consequence |
 
 Missing/contradictory/unavailable inputs never prove a conflict. Prompt scopes
 are explicitly untrusted;cannot change authority,universe,IDs,payee,policy or

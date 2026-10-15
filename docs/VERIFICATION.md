@@ -202,3 +202,31 @@ local setup,selected-network deployment,scope limitations and upload safety.
 Browser create0GEN,deposit1GEN and review0GEN each finalized SUCCESS with
 canonical reload;browser-journal.json keeps those distinct from script proof.
 Remaining browser steps and final current-commit CI are explicitly pending.
+
+## Phase15 acceptance audit in progress
+
+Unchanged grader SHA256:
+0e90ae93c72c9464b4b995db6896cf08ea8f8d14b66a847156012f830e896746.
+The first dynamic audit used global Python3.13/gltest and failed fetching a
+nonexistent legacy runner bundle(HTTP404). A focused global invocation reproduced
+that cause. Prepending project .venv/Scripts,setting PYTHONUTF8=1 and
+GENVM_VERSION=v0.2.16 makes the exact gltest tests/ command pass80/80.
+
+Rerun of the unchanged full grader with -Project this child -Category projects,
+public RepoUrl,selected-network ExplorerUrl and877character notes returned:
+Summary0BLOCKER,1WARN,6auto-verified; npm run check PASS; gltest PASS;
+all5acceptance gates PASS;VERDICT GATE OK. Exit1 reflects the reviewed warning,
+not a failed gate. The warning's private nonpayable guard is reviewed in
+studionet/README.md against deployed payable metadata and negative tests.
+This is an estimate;no official points or steward acceptance claimed.
+
+Browser create/deposit/review/use/release/withdraw all finalized SUCCESS.
+The withdrawal native child and exact1GEN contract/recipient deltas are verified.
+Canonical credit reloaded0GEN;this browser lifecycle is separate from script
+flows. Other browser cancellation/recovery rows remain pending proof.
+
+A real UI observation found Release remained clickable during canonical reload.
+Regression first failed,then passed after disabling actions while reading.
+History now maps raw verdict enums to the established user-facing labels.
+No design tokens/layout/navigation changed.44frontend tests are now expected;
+the latest full grader exercised the changed suite and passed.
