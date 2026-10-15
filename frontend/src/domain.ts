@@ -19,7 +19,10 @@ export interface ContractAdapter {
   write(command: Command, args: (string | number)[], valueGEN: '0' | '1', progress: Progress): Promise<unknown>;
 }
 export const labels: Record<Status, string> = { PENDING: 'Ready to check', HELD: 'Reserved', CONFLICT: 'Conflicting work', UNCLEAR: 'Clarify your scope', RETRYABLE: 'Review unavailable', RELEASED: 'Released', EXPIRED: 'Expired', CANCELLED: 'Cancelled' };
-export function effectiveStatus(r: Reservation, now = Date.now() / 1000): Status { return r.status === 'HELD' && now >= r.expires_at ? 'EXPIRED' : r.status; }
+export function effectiveStatus(r: Reservation, now = Date.now() / 1000): Status {
+  const expired = r.status === 'HELD' ? now >= r.expires_at : ['PENDING', 'RETRYABLE'].includes(r.status) && now >= r.review_deadline;
+  return expired ? 'EXPIRED' : r.status;
+}
 export function actions(r: Reservation, account: string | undefined, w: Workspace | undefined, now = Date.now() / 1000): Command[] {
   if (!account || !w || !w.members.some(x => x.toLowerCase() === account.toLowerCase())) return [];
   const own = r.owner.toLowerCase() === account.toLowerCase(), pending = ['PENDING', 'RETRYABLE'].includes(r.status), held = r.status === 'HELD';

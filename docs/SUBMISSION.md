@@ -26,8 +26,8 @@ It does not claim external write enforcement or adoption.
   with the observed result; that mismatch remains recorded.
 - [Browser-wallet journal](evidence/studionet/browser-journal.json): create,
   deposit, review, protocol action, release and withdrawal finalized successfully.
-  The exact one-GEN native refund was verified. Browser recovery and cancellation
-  are still pending; their controls and tests exist.
+  The exact one-GEN native refund was verified. Browser expiry recovery has also
+  finalized successfully; cancellation and its aggregate withdrawal are pending.
 - [Exact-source consensus probe](evidence/studionet/exact-source-smoke.json):
   frozen overlap, disjoint, unclear and injection cases. This is a diagnostic,
   not an additional production contract or proof of universal semantic accuracy.
@@ -43,7 +43,7 @@ It does not claim external write enforcement or adoption.
 
 There is exactly one production intelligent contract, `ClashLockContract`,
 on Studionet chain61999 at the linked address. Fresh local verification passed
-80 direct contract tests,14 receipt tests and44 frontend tests (138 total),
+80 direct contract tests,14 receipt tests and45 frontend tests (139 total),
 with zero critical skips, followed by TypeScript and the production build.
 Direct tests and real consensus evidence are different kinds of proof.
 
@@ -51,8 +51,9 @@ The selected-network lifecycle includes an opposing actor's conflicting scope,
 disjoint writes, overlapping shared reads, an unclear scope, cancellation,
 protocol-native fencing and exact native refunds. An expired fence was rejected
 with finalized ERROR and unchanged canonical requests/accounting; this negative
-transaction is not counted as a successful consequence. Final expiry recovery,
-reacquisition and old-generation rejection remain under verification.
+transaction is not counted as a successful consequence. Browser expiry recovery
+returned one GEN to its payer's credit. Final withdrawal,reacquisition and
+old-generation rejection remain under verification.
 
 The app reads canonical state and signs through a user-selected EVM provider.
 V1 does not establish outside ownership, legal rights, external effect

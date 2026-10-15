@@ -275,3 +275,39 @@ its old success reason;the existing recovery regression failed before this
 small copy correction and passed after it. Layout,tokens and navigation remain
 unchanged. Browser recovery/cancellation and the final all-refunds checkpoint
 are still pending. The submission packet records those remaining items.
+
+## Browser recovery and review-deadline correction (19:29 ICT)
+
+`node scripts/browser-proof.mjs record recover
+0xc9c3450f6d86006a439b28930806c67eab5178c1cf8331e62c2121fdfd2ad8eb 0`
+returned verified=true,FINALIZED,SUCCESS,MAJORITY_AGREE. Canonical expiry-holder
+deposit is0GEN,statusEXPIRED,original payer credit1GEN. The button disappeared
+after finality/reload;recovery-complete.jpg retains the actual UI.
+
+The browser-cancel-fixture was deliberately opened through the authorized script,
+not the browser. Its1GEN deposit finalized SUCCESS and canonical PENDING.
+Cancellation still requires its actual contextual browser control/signature.
+This mixed setup is separate from the fully browser-created primary request.
+
+A real due pending request still displayed Ready to check after its review
+deadline,although review was correctly unavailable. Domain and UI regressions
+failed for that behavior before the correction. Effective display status now
+expires pending/retry requests at the exact deadline;detail explains cancel or
+recover and the awaiting-review filter excludes them. Raw canonical status is
+unchanged. No style/layout/navigation changes were made.
+
+`cd frontend; npm test -- src/domain.test.ts src/lifecycle.test.tsx` then
+returned27passed. Fresh `npm run check` returned80direct+14receipt+45frontend
+passed,total139,zero critical skips;lint/TypeScript/Vite build passed.
+An earlier targeted npm-exec invocation lost its jsdom option and failed with
+document-is-not-defined;the correct package test command reproduced the actual
+single UI assertion failure before the fix. No infrastructure failure was
+presented as the intended regression.
+
+CI38729240569 for public be3ad7f completed SUCCESS. Vercel deployment
+dpl_GpNTerSTTsLRRtFUbBgwwWsKPJSV READY returned HTTP200,titleClashLock,Reactroot
+and proxy0xf22f. New pending-review copy still needs publication/deployment.
+
+The optional Portal logo chooser timed out again after the user enabled file-URL
+access. No successful logo upload is claimed;the draft still has7/7required
+fields and no submission confirmation.
