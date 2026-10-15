@@ -10,7 +10,7 @@ root = Path(__file__).resolve().parent.parent
 assert Path(git('rev-parse', '--show-toplevel').decode().strip()).resolve() == root
 paths = git('ls-files', '-z').decode().split('\0')
 paths = [p for p in paths if p]
-files = {'README.md', '.gitignore', 'package.json', 'package-lock.json',
+files = {'README.md', '.gitignore', '.vercelignore', 'package.json', 'package-lock.json',
          'requirements.lock', 'gltest.config.yaml', 'frontend/index.html',
          'frontend/package.json', 'frontend/tsconfig.json',
          'frontend/vite.config.ts', 'frontend/.env.example', 'frontend/vercel.json'}
@@ -23,7 +23,8 @@ assert git('check-ignore', '.env').strip() == b'.env'
 assert git('check-ignore', 'frontend/.env').strip() == b'frontend/.env'
 
 secrets = []
-for env_path in (root / '.env', root.parent / '.env'):
+env_paths = [*root.glob('.env*'), * (root / 'frontend').glob('.env*'), root.parent / '.env']
+for env_path in env_paths:
     if env_path.exists():
         for line in env_path.read_text(encoding='utf-8-sig').splitlines():
             match = re.match(r'\s*([A-Z_]*(?:PRIVATE_KEY|TOKEN|SECRET|PASSWORD)[A-Z_]*)\s*=\s*(.+)', line)

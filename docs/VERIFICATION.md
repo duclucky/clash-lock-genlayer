@@ -172,3 +172,33 @@ UI showed failure honestly. A focused actual-SDK regression first failed,then
 passed after exposing only a safe numeric error code and suppressing SDK warning
 payloads. A screenshot retains the declined state. User was asked to sign the
 prepared0GEN form directly;execution remains PENDING_BROWSER_SIGNATURE.
+
+## Phases11-14
+
+`gh repo create ... --public --source . --remote origin --push` published
+https://github.com/duclucky/clash-lock-genlayer . `gh repo view --json
+url,isPrivate,defaultBranchRef`:isPrivate=false,main. Three commits preserved.
+Initial GitHub Actions38724170052 completed success at public commitc8179c5.
+Later commits require their own current CI result before final readiness.
+
+Vercel first build failed because workspace test dependencies were declared only
+at the root. They were explicitly declared in frontend;local build then passed.
+The upload boundary was separately corrected: .vercelignore plus real-manifest
+allowlist audit. `vercel-audit.py` returned21files,forbidden paths0,no environment
+files. The deploy wrapper now enforces this gate before future uploads.
+
+`vercel deploy --prod --yes` completed READY with alias
+https://clash-lock-genlayer.vercel.app . `vercel project inspect` confirmed
+Root Directory frontend,Framework Vite,Build Command npm run build,Output dist.
+
+Phase13 exact commands:`curl.exe -I -sS --max-time30 <live>` returned
+HTTP/1.1 200 OK;`curl.exe -sS --max-time30 <live>` returned title ClashLock and
+<div id="root"></div>. POST eth_chainId to production/genlayer-rpc returned
+0xf22f(61999). Chrome production/workspaces loaded both real canonical
+workspaces with no CORS/Failed-to-fetch error. Hosting projection:hosting.json.
+
+Phase14 README now includes the confirmed live URL,address/Explorer,architecture,
+local setup,selected-network deployment,scope limitations and upload safety.
+Browser create0GEN,deposit1GEN and review0GEN each finalized SUCCESS with
+canonical reload;browser-journal.json keeps those distinct from script proof.
+Remaining browser steps and final current-commit CI are explicitly pending.

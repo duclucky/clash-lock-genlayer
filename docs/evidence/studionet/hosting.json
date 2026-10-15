@@ -1,0 +1,16 @@
+{
+  "url": "https://clash-lock-genlayer.vercel.app",
+  "deployment": "dpl_8qnpuiYrH3Yr6yCE1uQDxevg6MDG",
+  "state": "READY",
+  "rootDirectory": "frontend",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "httpStatus": 200,
+  "htmlProjectName": true,
+  "htmlReactRoot": true,
+  "proxyChainId": 61999,
+  "uploadFileCount": 21,
+  "environmentFilesUploaded": 0,
+  "verifiedAt": "2026-10-15T11:06:18Z"
+}

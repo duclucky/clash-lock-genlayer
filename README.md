@@ -7,8 +7,13 @@ temporary protocol locks with current fencing generations. It does not establish
 external data ownership or stop an unintegrated external service from writing.
 
 Category: Projects. The contract and browser application are implemented. Local
-checks and a consequential Studionet lifecycle are verified; browser signing,
-production hosting and submission acceptance are still being verified.
+checks,a consequential Studionet lifecycle and browser create/deposit/review are
+verified. Full browser recovery/withdrawal and submission acceptance are being verified.
+
+## Live App
+
+[Open ClashLock](https://clash-lock-genlayer.vercel.app).
+Production HTTP200,project title,React root and same-origin Studionet RPC verified.
 
 ## Deployed Contract
 
@@ -78,6 +83,13 @@ contract balance were0GEN at that checkpoint. [Verification](docs/VERIFICATION.m
 `npm run check` verifies semantic lint,80Python direct tests,14receipt tests,
 43frontend tests,the real SDK adapter boundary,TypeScript and production build.
 Direct-mode mocked tests are separate from real network consensus evidence.
+
+Hosting uses Vercel's Vite preset,root directory `frontend/`,build command
+`npm run build`,output `dist`,and the public production environment variable
+`VITE_CONTRACT_ADDRESS`. `.vercelignore` excludes every local environment file.
+Authorized operators redeploy through `scripts/deploy.ps1`,which audits Vercel's
+actual upload manifest before uploading. Git's ignore rules alone are insufficient
+for this CLI upload boundary.
 
 ## Limitations and next milestone
 

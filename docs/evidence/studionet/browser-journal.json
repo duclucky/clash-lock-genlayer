@@ -1,0 +1,1077 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "address": "0x3538571716638eDCEbF45BC7438FD7DdD4F3bA02",
+  "actors": [
+    "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+    "0x45aD397c438397A702B53a7499a78D08961D39Db",
+    "0x45248be151F7f7e230150db23774733Cd966Eb45"
+  ],
+  "operations": {
+    "create": {
+      "id": "create",
+      "browserSigned": true,
+      "before": null,
+      "transactionHash": "0x78c25fb9de06b85adae961ca76563d22fc2bdb78457e5e7591dd85a9c7443a12",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3538571716638eDCEbF45BC7438FD7DdD4F3bA02",
+      "observedAt": "2026-10-15T11:00:05.323Z",
+      "valueGEN": "0",
+      "after": {
+        "at": "2026-10-15T11:00:06.712Z",
+        "workspaces": [
+          {
+            "id": "billing-v1",
+            "name": "Billing coordination",
+            "resource": "All invoice rows in a protocol workspace. Each row has billing country (France, Germany, or Spain), currency, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792088868,
+            "epoch": 4,
+            "digest": "c68c1f9a11b1897ed973cb83189a6cdf76c31f82066df4bfee57ef66eb817673"
+          },
+          {
+            "id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "name": "Agent billing workspace",
+            "resource": "All protocol invoice rows. Every row has exactly one billing country: France, Germany, or Spain, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792148322,
+            "epoch": 0,
+            "digest": "de1214e2df347a3b58731e4f37edd1f7d39598496a042b823296692469edd61a"
+          }
+        ],
+        "requests": [
+          {
+            "id": "france-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792060810,
+            "expires_at": 1792062101,
+            "fence": 1,
+            "used": true,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "953232225bef27a3263d12815f3e8990beb8ace43603b5c3c6ba83e82ea4904d"
+          },
+          {
+            "id": "france-opponent",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "All invoices billed to customers in France, and no other countries.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792060959,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "ded5c75d1a1dbc3b9b08e9cb9c1cfc4334d506cda64eaacf41dca8a2e9e6801c"
+          },
+          {
+            "id": "germany-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "scope": "Invoice rows whose billing country is Germany only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792061195,
+            "expires_at": 1792061251,
+            "fence": 2,
+            "used": false,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "b4c341f037d5fc03ab953018b70d66160c5cac3a847e0ab9f5034a2ba78cb074"
+          },
+          {
+            "id": "unclear-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows in the important queue.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792061429,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "e784cc2bd73e4c986f78e0a5793859de0997101f833d6ca2fde770c9ee377471"
+          },
+          {
+            "id": "unspecified-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "The relevant invoice rows, with their selection criteria unspecified.",
+            "mode": "WRITE",
+            "status": "UNCLEAR",
+            "review_deadline": 1792061741,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "The overlap could not be determined. Your deposit is returned; submit a clearer scope.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "7a92b7c911591b77785a1d812ae3facaff60a928cedfe79fc8a66547bb0947bb"
+          },
+          {
+            "id": "cancel-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows whose billing country is Spain only.",
+            "mode": "WRITE",
+            "status": "CANCELLED",
+            "review_deadline": 1792061916,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Request cancelled. Your deposit is available to withdraw.",
+            "attempts": 0,
+            "deposit_gen": "0",
+            "digest": "b34b95a9eefc6a67dc7857dc148473f35bf91e679c3be01f7275b4c01a2e6128"
+          }
+        ],
+        "accounting": {
+          "received_gen": "6",
+          "escrow_gen": "0",
+          "credit_gen": "0",
+          "withdrawn_gen": "6"
+        },
+        "credits": [
+          {
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          },
+          {
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "available_gen": "0",
+            "withdrawn_gen": "4"
+          },
+          {
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          }
+        ],
+        "balancesGEN": [
+          "1780.6399969999999882",
+          "11.521000000000001975",
+          "2",
+          "0"
+        ]
+      },
+      "verified": true
+    },
+    "deposit": {
+      "id": "deposit",
+      "browserSigned": true,
+      "before": {
+        "at": "2026-10-15T11:00:36.952Z",
+        "workspaces": [
+          {
+            "id": "billing-v1",
+            "name": "Billing coordination",
+            "resource": "All invoice rows in a protocol workspace. Each row has billing country (France, Germany, or Spain), currency, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792088868,
+            "epoch": 4,
+            "digest": "c68c1f9a11b1897ed973cb83189a6cdf76c31f82066df4bfee57ef66eb817673"
+          },
+          {
+            "id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "name": "Agent billing workspace",
+            "resource": "All protocol invoice rows. Every row has exactly one billing country: France, Germany, or Spain, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792148322,
+            "epoch": 0,
+            "digest": "de1214e2df347a3b58731e4f37edd1f7d39598496a042b823296692469edd61a"
+          }
+        ],
+        "requests": [
+          {
+            "id": "france-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792060810,
+            "expires_at": 1792062101,
+            "fence": 1,
+            "used": true,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "953232225bef27a3263d12815f3e8990beb8ace43603b5c3c6ba83e82ea4904d"
+          },
+          {
+            "id": "france-opponent",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "All invoices billed to customers in France, and no other countries.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792060959,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "ded5c75d1a1dbc3b9b08e9cb9c1cfc4334d506cda64eaacf41dca8a2e9e6801c"
+          },
+          {
+            "id": "germany-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "scope": "Invoice rows whose billing country is Germany only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792061195,
+            "expires_at": 1792061251,
+            "fence": 2,
+            "used": false,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "b4c341f037d5fc03ab953018b70d66160c5cac3a847e0ab9f5034a2ba78cb074"
+          },
+          {
+            "id": "unclear-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows in the important queue.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792061429,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "e784cc2bd73e4c986f78e0a5793859de0997101f833d6ca2fde770c9ee377471"
+          },
+          {
+            "id": "unspecified-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "The relevant invoice rows, with their selection criteria unspecified.",
+            "mode": "WRITE",
+            "status": "UNCLEAR",
+            "review_deadline": 1792061741,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "The overlap could not be determined. Your deposit is returned; submit a clearer scope.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "7a92b7c911591b77785a1d812ae3facaff60a928cedfe79fc8a66547bb0947bb"
+          },
+          {
+            "id": "cancel-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows whose billing country is Spain only.",
+            "mode": "WRITE",
+            "status": "CANCELLED",
+            "review_deadline": 1792061916,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Request cancelled. Your deposit is available to withdraw.",
+            "attempts": 0,
+            "deposit_gen": "0",
+            "digest": "b34b95a9eefc6a67dc7857dc148473f35bf91e679c3be01f7275b4c01a2e6128"
+          }
+        ],
+        "accounting": {
+          "received_gen": "6",
+          "escrow_gen": "0",
+          "credit_gen": "0",
+          "withdrawn_gen": "6"
+        },
+        "credits": [
+          {
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          },
+          {
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "available_gen": "0",
+            "withdrawn_gen": "4"
+          },
+          {
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          }
+        ],
+        "balancesGEN": [
+          "1780.6399969999999882",
+          "11.521000000000001975",
+          "2",
+          "0"
+        ]
+      },
+      "transactionHash": "0x6d50c323dfcc58f21bd736765a11f3083ce873e5d9e7b664e48803f69bf86632",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3538571716638eDCEbF45BC7438FD7DdD4F3bA02",
+      "observedAt": "2026-10-15T11:03:27.582Z",
+      "valueGEN": "1",
+      "after": {
+        "at": "2026-10-15T11:03:28.944Z",
+        "workspaces": [
+          {
+            "id": "billing-v1",
+            "name": "Billing coordination",
+            "resource": "All invoice rows in a protocol workspace. Each row has billing country (France, Germany, or Spain), currency, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792088868,
+            "epoch": 4,
+            "digest": "c68c1f9a11b1897ed973cb83189a6cdf76c31f82066df4bfee57ef66eb817673"
+          },
+          {
+            "id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "name": "Agent billing workspace",
+            "resource": "All protocol invoice rows. Every row has exactly one billing country: France, Germany, or Spain, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792148322,
+            "epoch": 0,
+            "digest": "de1214e2df347a3b58731e4f37edd1f7d39598496a042b823296692469edd61a"
+          }
+        ],
+        "requests": [
+          {
+            "id": "france-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792060810,
+            "expires_at": 1792062101,
+            "fence": 1,
+            "used": true,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "953232225bef27a3263d12815f3e8990beb8ace43603b5c3c6ba83e82ea4904d"
+          },
+          {
+            "id": "france-opponent",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "All invoices billed to customers in France, and no other countries.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792060959,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "ded5c75d1a1dbc3b9b08e9cb9c1cfc4334d506cda64eaacf41dca8a2e9e6801c"
+          },
+          {
+            "id": "germany-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "scope": "Invoice rows whose billing country is Germany only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792061195,
+            "expires_at": 1792061251,
+            "fence": 2,
+            "used": false,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "b4c341f037d5fc03ab953018b70d66160c5cac3a847e0ab9f5034a2ba78cb074"
+          },
+          {
+            "id": "unclear-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows in the important queue.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792061429,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "e784cc2bd73e4c986f78e0a5793859de0997101f833d6ca2fde770c9ee377471"
+          },
+          {
+            "id": "unspecified-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "The relevant invoice rows, with their selection criteria unspecified.",
+            "mode": "WRITE",
+            "status": "UNCLEAR",
+            "review_deadline": 1792061741,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "The overlap could not be determined. Your deposit is returned; submit a clearer scope.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "7a92b7c911591b77785a1d812ae3facaff60a928cedfe79fc8a66547bb0947bb"
+          },
+          {
+            "id": "cancel-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows whose billing country is Spain only.",
+            "mode": "WRITE",
+            "status": "CANCELLED",
+            "review_deadline": 1792061916,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Request cancelled. Your deposit is available to withdraw.",
+            "attempts": 0,
+            "deposit_gen": "0",
+            "digest": "b34b95a9eefc6a67dc7857dc148473f35bf91e679c3be01f7275b4c01a2e6128"
+          },
+          {
+            "id": "35fd50a0-97ba-4471-8c6e-5fa4fdc434c1",
+            "namespace_id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "PENDING",
+            "review_deadline": 1792062698,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "",
+            "attempts": 0,
+            "deposit_gen": "1",
+            "digest": "be8db935b09726a6b327d07a8d092f7a1dd28827a12125d0c172f10fc8335519"
+          }
+        ],
+        "accounting": {
+          "received_gen": "7",
+          "escrow_gen": "1",
+          "credit_gen": "0",
+          "withdrawn_gen": "6"
+        },
+        "credits": [
+          {
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          },
+          {
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "available_gen": "0",
+            "withdrawn_gen": "4"
+          },
+          {
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          }
+        ],
+        "balancesGEN": [
+          "1779.6399969999999882",
+          "11.521000000000001975",
+          "2",
+          "1"
+        ]
+      },
+      "verified": true
+    },
+    "review": {
+      "id": "review",
+      "browserSigned": true,
+      "before": {
+        "at": "2026-10-15T11:03:38.708Z",
+        "workspaces": [
+          {
+            "id": "billing-v1",
+            "name": "Billing coordination",
+            "resource": "All invoice rows in a protocol workspace. Each row has billing country (France, Germany, or Spain), currency, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792088868,
+            "epoch": 4,
+            "digest": "c68c1f9a11b1897ed973cb83189a6cdf76c31f82066df4bfee57ef66eb817673"
+          },
+          {
+            "id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "name": "Agent billing workspace",
+            "resource": "All protocol invoice rows. Every row has exactly one billing country: France, Germany, or Spain, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792148322,
+            "epoch": 0,
+            "digest": "de1214e2df347a3b58731e4f37edd1f7d39598496a042b823296692469edd61a"
+          }
+        ],
+        "requests": [
+          {
+            "id": "france-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792060810,
+            "expires_at": 1792062101,
+            "fence": 1,
+            "used": true,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "953232225bef27a3263d12815f3e8990beb8ace43603b5c3c6ba83e82ea4904d"
+          },
+          {
+            "id": "france-opponent",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "All invoices billed to customers in France, and no other countries.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792060959,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "ded5c75d1a1dbc3b9b08e9cb9c1cfc4334d506cda64eaacf41dca8a2e9e6801c"
+          },
+          {
+            "id": "germany-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "scope": "Invoice rows whose billing country is Germany only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792061195,
+            "expires_at": 1792061251,
+            "fence": 2,
+            "used": false,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "b4c341f037d5fc03ab953018b70d66160c5cac3a847e0ab9f5034a2ba78cb074"
+          },
+          {
+            "id": "unclear-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows in the important queue.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792061429,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "e784cc2bd73e4c986f78e0a5793859de0997101f833d6ca2fde770c9ee377471"
+          },
+          {
+            "id": "unspecified-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "The relevant invoice rows, with their selection criteria unspecified.",
+            "mode": "WRITE",
+            "status": "UNCLEAR",
+            "review_deadline": 1792061741,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "The overlap could not be determined. Your deposit is returned; submit a clearer scope.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "7a92b7c911591b77785a1d812ae3facaff60a928cedfe79fc8a66547bb0947bb"
+          },
+          {
+            "id": "cancel-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows whose billing country is Spain only.",
+            "mode": "WRITE",
+            "status": "CANCELLED",
+            "review_deadline": 1792061916,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Request cancelled. Your deposit is available to withdraw.",
+            "attempts": 0,
+            "deposit_gen": "0",
+            "digest": "b34b95a9eefc6a67dc7857dc148473f35bf91e679c3be01f7275b4c01a2e6128"
+          },
+          {
+            "id": "35fd50a0-97ba-4471-8c6e-5fa4fdc434c1",
+            "namespace_id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "PENDING",
+            "review_deadline": 1792062698,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "",
+            "attempts": 0,
+            "deposit_gen": "1",
+            "digest": "be8db935b09726a6b327d07a8d092f7a1dd28827a12125d0c172f10fc8335519"
+          }
+        ],
+        "accounting": {
+          "received_gen": "7",
+          "escrow_gen": "1",
+          "credit_gen": "0",
+          "withdrawn_gen": "6"
+        },
+        "credits": [
+          {
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          },
+          {
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "available_gen": "0",
+            "withdrawn_gen": "4"
+          },
+          {
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          }
+        ],
+        "balancesGEN": [
+          "1779.6399969999999882",
+          "11.521000000000001975",
+          "2",
+          "1"
+        ]
+      },
+      "transactionHash": "0x18960ebcf914555c6de98eb30b1d4e74b1bf58249e719be6e19e8c463f4ecc1d",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3538571716638eDCEbF45BC7438FD7DdD4F3bA02",
+      "observedAt": "2026-10-15T11:05:48.162Z",
+      "valueGEN": "0",
+      "after": {
+        "at": "2026-10-15T11:05:49.534Z",
+        "workspaces": [
+          {
+            "id": "billing-v1",
+            "name": "Billing coordination",
+            "resource": "All invoice rows in a protocol workspace. Each row has billing country (France, Germany, or Spain), currency, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792088868,
+            "epoch": 4,
+            "digest": "c68c1f9a11b1897ed973cb83189a6cdf76c31f82066df4bfee57ef66eb817673"
+          },
+          {
+            "id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "name": "Agent billing workspace",
+            "resource": "All protocol invoice rows. Every row has exactly one billing country: France, Germany, or Spain, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792148322,
+            "epoch": 1,
+            "digest": "de1214e2df347a3b58731e4f37edd1f7d39598496a042b823296692469edd61a"
+          }
+        ],
+        "requests": [
+          {
+            "id": "france-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792060810,
+            "expires_at": 1792062101,
+            "fence": 1,
+            "used": true,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "953232225bef27a3263d12815f3e8990beb8ace43603b5c3c6ba83e82ea4904d"
+          },
+          {
+            "id": "france-opponent",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "All invoices billed to customers in France, and no other countries.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792060959,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "ded5c75d1a1dbc3b9b08e9cb9c1cfc4334d506cda64eaacf41dca8a2e9e6801c"
+          },
+          {
+            "id": "germany-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "scope": "Invoice rows whose billing country is Germany only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792061195,
+            "expires_at": 1792061251,
+            "fence": 2,
+            "used": false,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "b4c341f037d5fc03ab953018b70d66160c5cac3a847e0ab9f5034a2ba78cb074"
+          },
+          {
+            "id": "unclear-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows in the important queue.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792061429,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "e784cc2bd73e4c986f78e0a5793859de0997101f833d6ca2fde770c9ee377471"
+          },
+          {
+            "id": "unspecified-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "The relevant invoice rows, with their selection criteria unspecified.",
+            "mode": "WRITE",
+            "status": "UNCLEAR",
+            "review_deadline": 1792061741,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "The overlap could not be determined. Your deposit is returned; submit a clearer scope.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "7a92b7c911591b77785a1d812ae3facaff60a928cedfe79fc8a66547bb0947bb"
+          },
+          {
+            "id": "cancel-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows whose billing country is Spain only.",
+            "mode": "WRITE",
+            "status": "CANCELLED",
+            "review_deadline": 1792061916,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Request cancelled. Your deposit is available to withdraw.",
+            "attempts": 0,
+            "deposit_gen": "0",
+            "digest": "b34b95a9eefc6a67dc7857dc148473f35bf91e679c3be01f7275b4c01a2e6128"
+          },
+          {
+            "id": "35fd50a0-97ba-4471-8c6e-5fa4fdc434c1",
+            "namespace_id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "HELD",
+            "review_deadline": 1792062698,
+            "expires_at": 1792062835,
+            "fence": 1,
+            "used": false,
+            "reason": "Your work is reserved until expiry. Release it when you finish.",
+            "attempts": 1,
+            "deposit_gen": "1",
+            "digest": "be8db935b09726a6b327d07a8d092f7a1dd28827a12125d0c172f10fc8335519"
+          }
+        ],
+        "accounting": {
+          "received_gen": "7",
+          "escrow_gen": "1",
+          "credit_gen": "0",
+          "withdrawn_gen": "6"
+        },
+        "credits": [
+          {
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          },
+          {
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "available_gen": "0",
+            "withdrawn_gen": "4"
+          },
+          {
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          }
+        ],
+        "balancesGEN": [
+          "1779.6399969999999882",
+          "11.521000000000001975",
+          "2",
+          "1"
+        ]
+      },
+      "verified": true
+    },
+    "use": {
+      "id": "use",
+      "browserSigned": true,
+      "before": {
+        "at": "2026-10-15T11:05:58.839Z",
+        "workspaces": [
+          {
+            "id": "billing-v1",
+            "name": "Billing coordination",
+            "resource": "All invoice rows in a protocol workspace. Each row has billing country (France, Germany, or Spain), currency, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792088868,
+            "epoch": 4,
+            "digest": "c68c1f9a11b1897ed973cb83189a6cdf76c31f82066df4bfee57ef66eb817673"
+          },
+          {
+            "id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "name": "Agent billing workspace",
+            "resource": "All protocol invoice rows. Every row has exactly one billing country: France, Germany, or Spain, and an account identifier.",
+            "creator": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "members": [
+              "0xc495ef51618d03267a1f227afe5b27b38c748272",
+              "0x45ad397c438397a702b53a7499a78d08961d39db",
+              "0x45248be151f7f7e230150db23774733cd966eb45"
+            ],
+            "closes_at": 1792148322,
+            "epoch": 1,
+            "digest": "de1214e2df347a3b58731e4f37edd1f7d39598496a042b823296692469edd61a"
+          }
+        ],
+        "requests": [
+          {
+            "id": "france-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792060810,
+            "expires_at": 1792062101,
+            "fence": 1,
+            "used": true,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "953232225bef27a3263d12815f3e8990beb8ace43603b5c3c6ba83e82ea4904d"
+          },
+          {
+            "id": "france-opponent",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "All invoices billed to customers in France, and no other countries.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792060959,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "ded5c75d1a1dbc3b9b08e9cb9c1cfc4334d506cda64eaacf41dca8a2e9e6801c"
+          },
+          {
+            "id": "germany-holder",
+            "namespace_id": "billing-v1",
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "scope": "Invoice rows whose billing country is Germany only.",
+            "mode": "WRITE",
+            "status": "RELEASED",
+            "review_deadline": 1792061195,
+            "expires_at": 1792061251,
+            "fence": 2,
+            "used": false,
+            "reason": "Reservation released. Your deposit is available to withdraw.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "b4c341f037d5fc03ab953018b70d66160c5cac3a847e0ab9f5034a2ba78cb074"
+          },
+          {
+            "id": "unclear-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows in the important queue.",
+            "mode": "WRITE",
+            "status": "CONFLICT",
+            "review_deadline": 1792061429,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Overlapping work is already reserved. Your deposit is returned.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "e784cc2bd73e4c986f78e0a5793859de0997101f833d6ca2fde770c9ee377471"
+          },
+          {
+            "id": "unspecified-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "The relevant invoice rows, with their selection criteria unspecified.",
+            "mode": "WRITE",
+            "status": "UNCLEAR",
+            "review_deadline": 1792061741,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "The overlap could not be determined. Your deposit is returned; submit a clearer scope.",
+            "attempts": 1,
+            "deposit_gen": "0",
+            "digest": "7a92b7c911591b77785a1d812ae3facaff60a928cedfe79fc8a66547bb0947bb"
+          },
+          {
+            "id": "cancel-request",
+            "namespace_id": "billing-v1",
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "scope": "Invoice rows whose billing country is Spain only.",
+            "mode": "WRITE",
+            "status": "CANCELLED",
+            "review_deadline": 1792061916,
+            "expires_at": 0,
+            "fence": 0,
+            "used": false,
+            "reason": "Request cancelled. Your deposit is available to withdraw.",
+            "attempts": 0,
+            "deposit_gen": "0",
+            "digest": "b34b95a9eefc6a67dc7857dc148473f35bf91e679c3be01f7275b4c01a2e6128"
+          },
+          {
+            "id": "35fd50a0-97ba-4471-8c6e-5fa4fdc434c1",
+            "namespace_id": "3ec420db-df10-4fac-b07a-e6a692b73f5f",
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "scope": "Invoice rows whose billing country is France only.",
+            "mode": "WRITE",
+            "status": "HELD",
+            "review_deadline": 1792062698,
+            "expires_at": 1792062835,
+            "fence": 1,
+            "used": false,
+            "reason": "Your work is reserved until expiry. Release it when you finish.",
+            "attempts": 1,
+            "deposit_gen": "1",
+            "digest": "be8db935b09726a6b327d07a8d092f7a1dd28827a12125d0c172f10fc8335519"
+          }
+        ],
+        "accounting": {
+          "received_gen": "7",
+          "escrow_gen": "1",
+          "credit_gen": "0",
+          "withdrawn_gen": "6"
+        },
+        "credits": [
+          {
+            "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          },
+          {
+            "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+            "available_gen": "0",
+            "withdrawn_gen": "4"
+          },
+          {
+            "owner": "0x45248be151f7f7e230150db23774733cd966eb45",
+            "available_gen": "0",
+            "withdrawn_gen": "1"
+          }
+        ],
+        "balancesGEN": [
+          "1779.6399969999999882",
+          "11.521000000000001975",
+          "2",
+          "1"
+        ]
+      }
+    }
+  }
+}

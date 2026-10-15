@@ -20,3 +20,6 @@ grade-report.json
 design-system/
 artifacts/
 *.tmp
+
+.vercel
+.env*
