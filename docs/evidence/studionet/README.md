@@ -15,6 +15,10 @@ canonical before/after and native-child proofs. `browser-journal.json` records
 separately the transactions actually signed through the application's wallet.
 `lifecycle-verification.json` is the initial fully recovered6GEN checkpoint;
 later browser activity has its own accounting snapshots.
+`final-verification.json` is the final read-only checkpoint:40script transactions,
+9browser transactions,two expected finalized ERROR rejections,11native transfers,
+12GEN received=withdrawn,escrow/credit/native balance0GEN. It freshly compares
+deployed source and queries every workspace request and issued fence.
 
 The payability warning is reviewed against actual metadata:open_request is the
 only value-accepting public method and schema payable=true. The private module
@@ -30,3 +34,9 @@ the production source. No full receipt,validator config or signing key is stored
 The important-queue expected/actual mismatch is retained explicitly. It does not
 count as UNCLEAR coverage;the separate unspecified-criteria request supplies that
 production evidence. No guarantee of semantic classification accuracy is made.
+
+The unchanged grading heuristic searches all frontend source files,including
+tests,for the word fake. It consequently flags `vi.useFakeTimers` in the two
+receipt-read regressions as simulation. Searching runtime files excluding
+`*.test.*` returned no such match;actual browser-wallet hashes/native transfers
+are separate evidence. The tests are retained and the grader is unchanged.

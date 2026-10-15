@@ -37,8 +37,11 @@ export function createAdapter(session:Session={},input?:Config):ContractAdapter 
   let hash:`0x${string}`|undefined;
   try{
    progress('Awaiting signature');const submitted=await submitWrite(session,settings,command,args,valueGEN);hash=submitted;progress('Submitted',hash);
+   let readFailures=0;
    for(let poll=0;poll<90;poll++){
-    const raw=await safe(()=>reader.request({method:'eth_getTransactionByHash',params:[submitted]})) as Record<string,unknown>|null;
+    let raw:Record<string,unknown>|null;
+    try{raw=await safe(()=>reader.request({method:'eth_getTransactionByHash',params:[submitted]})) as Record<string,unknown>|null;readFailures=0;}
+    catch{if(++readFailures>=3)throw new Error('Confirmation is unavailable. Keep the saved transaction link and refresh canonical state. Do not send this transaction again.');await new Promise(resolve=>setTimeout(resolve,3000));continue;}
     const status=String(raw?.status??'PENDING');
     if(status==='ACCEPTED'||status==='DECIDED')progress('Accepted',hash);
     if(status==='UNDETERMINED'){progress('Review undecided',hash);throw new Error('Consensus is undecided. Reload this request before retrying; no completed reservation is claimed.');}
@@ -53,7 +56,7 @@ export function createAdapter(session:Session={},input?:Config):ContractAdapter 
     await new Promise(resolve=>setTimeout(resolve,3000));
    }
    throw new Error('Confirmation is still pending. Inspect the saved transaction link before sending another action.');
-  }catch(error){progress('Failed',hash);if(error instanceof Error&&/No transaction|GEN value|Reconnect|Consensus|finalized transaction|still pending|did not complete/.test(error.message))throw error;const code=failureCode(error);throw new Error(`The wallet or network could not complete this action${code!==undefined?` (code ${code})`:''}. Check the transaction link, then refresh before retrying.`);}
+  }catch(error){progress('Failed',hash);if(error instanceof Error&&/No transaction|GEN value|Reconnect|Consensus|finalized transaction|still pending|did not complete|Confirmation is unavailable/.test(error.message))throw error;const code=failureCode(error);throw new Error(`The wallet or network could not complete this action${code!==undefined?` (code ${code})`:''}. Check the transaction link, then refresh before retrying.`);}
  }
  return {configured:!!settings.address,workspaces:()=>read('list_namespaces'),workspace:id=>read('get_namespace',[id]),requests:id=>read('list_requests',[id]),request:id=>read('get_request',[id]),activity:owner=>read('get_activity',[owner]),credit:owner=>read('get_credit',[owner]),attempts:id=>read('get_attempts',[id]),write};
 }

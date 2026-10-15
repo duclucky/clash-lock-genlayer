@@ -311,3 +311,67 @@ and proxy0xf22f. New pending-review copy still needs publication/deployment.
 The optional Portal logo chooser timed out again after the user enabled file-URL
 access. No successful logo upload is claimed;the draft still has7/7required
 fields and no submission confirmation.
+
+The full unchanged grader was rerun after the45frontend-test correction:
+npmcheckPASS,gltestPASS,all5gatesPASS,0BLOCKER1reviewedWARN,GATEOK(exit1).
+The deploy wrapper again audited21actual upload files/noenv and produced
+dpl_4pxdRsvKQf78Ea9qcoaoQKBM58Bn READY from publicb98e936.
+HTTP200/titleClashLock/Reactroot and production RPC0xf22f were verified.
+The new proof verifier additionally requires all nine browser transactions,
+reacquisition/old-generation rejection,all workspace requests and fresh deployed
+source identity. It must not pass until those pending proofs exist.
+
+Browser cancellation `0xc97d100d5fe48f373e90ecabc9f70b7fc7e8f1f82b696fe7dabcb2a1c5fa4f71`
+was captured by `node scripts/browser-proof.mjs record cancel <hash> 0`:
+verified=true, FINALIZED/SUCCESS/MAJORITY_AGREE, canonical CANCELLED and deposit0GEN.
+Accounting now reads received11GEN, escrow0GEN, credit2GEN, withdrawn9GEN.
+The first capture hit a transient read-only RPC code-1; repeating the same saved
+hash succeeded without a new transaction. The UI reloaded Cancelled and removed
+the cancellation/recovery controls. All eight public write controls now have
+actual browser-wallet finality/reload evidence. Extra cancellation/recovery
+fixtures were created by script; the primary complete journey was browser-created.
+
+`node scripts/browser-proof.mjs before withdraw-recovery` captured the real
+two-GEN payer credit and native balances before asking for the aggregate refund.
+It is not yet native-transfer proof. CI38735728222 completed SUCCESS for public
+commit b98e93683277e5225cba101f423d1128a530592b.
+
+Aggregate browser refund `0xa6d9a22ffcc30734f2460281f65611120915bd5a03b2e0ee53fffeb0195ee7bf`
+finalized SUCCESS/MAJORITY_AGREE. Read-only browser-proof capture verified its
+native child `0xba1de2907fc1ac094f7f3a165631660ef13efab6557f23b617e8791327624e61`,
+exact contract decrease2GEN, original-payer increase2GEN and credit0GEN.
+The UI first reached Accepted then encountered transient RPC code-1. Its saved
+hash was reconciled, never re-sent; Refresh deposits showed0GEN available and
+5GEN previously withdrawn for that wallet. This is an explicitly reconciled
+browser refund, not a claim that the UI initially tracked it without error.
+At that checkpoint global received11GEN=withdrawn11GEN,escrow/credit/native0GEN.
+
+The actual observed RPC interruption motivated two real-SDK I/O regressions:
+one transient receipt-read error followed by success, and a bounded three-error
+failure retaining the same hash. Both failed first. Confirmation reads now retry
+up to three consecutive read failures without invoking another wallet send.
+Exhaustion says confirmation is unavailable and tells users not to resend.
+The UI distinguishes this known-hash ambiguity from an unsigned failed action.
+The existing UI failure test verifies the transaction link and no false success.
+Targeted26tests passed,then `npm run check` passed80direct+14receipt+47frontend
+(141total),zero critical skips,lint/TypeScript/production build. No styling changed.
+These retry cases are isolated SDK I/O proof, not another live transaction.
+
+`node scripts/verify-evidence.mjs` completed successfully after a transient
+read-only RPC retry. It freshly matched deployed source,checked chain61999,
+all workspace requests and every issued fence. Output:40verified script
+transactions,9verified browser transactions,2expected finalized ERROR rejections,
+11native withdrawals,received12GEN=withdrawn12GEN,escrow/credit/native balance0GEN,
+allDepositsRecovered=true. Every request has0GEN deposit and every issued fence
+is invalid. Reacquisition issued6 after5;stale-use retained HELD6 with no mutation,
+then release and native refund completed. final-verification.json retains output.
+All14gates and all eight browser lifecycle rows now have execution evidence.
+
+The final code check passed141tests. The unchanged full grader again returned
+0BLOCKER1WARN,npmcheckPASS,gltestPASS,all5gatesPASS,GATEOK(exit1).
+Its rubric estimate is now19/20 because its broad `fake|simulat` regex scans
+test files and matches the legitimate `vi.useFakeTimers` receipt regressions.
+Runtime files excluding `*.test.*` returned no such matches. This false positive
+is reviewed against9actual browser transactions and native1GEN/2GEN receipts;
+tests were not removed/renamed and the grader was not changed. This estimate is
+not an official score. The payable-helper warning remains separately reviewed.

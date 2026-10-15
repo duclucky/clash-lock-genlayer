@@ -1,0 +1,101 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "address": "0x3538571716638eDCEbF45BC7438FD7DdD4F3bA02",
+  "sourceMatchesOnChain": true,
+  "verifiedScriptTransactions": 40,
+  "verifiedBrowserTransactions": 9,
+  "expectedRejectedTransactions": 2,
+  "nativeWithdrawals": 11,
+  "accounting": {
+    "received_gen": "12",
+    "escrow_gen": "0",
+    "credit_gen": "0",
+    "withdrawn_gen": "12"
+  },
+  "nativeBalanceGEN": "0",
+  "allDepositsRecovered": true,
+  "observedExpectationMismatches": [
+    {
+      "operation": "review-unclear",
+      "expected": "UNCLEAR",
+      "actual": "CONFLICT",
+      "passed": false,
+      "note": "Important queue was judged potentially overlapping. This observed mismatch is retained and does not prove UNCLEAR."
+    }
+  ],
+  "requests": [
+    {
+      "id": "france-holder",
+      "status": "RELEASED",
+      "fence": 1,
+      "used": true
+    },
+    {
+      "id": "france-opponent",
+      "status": "CONFLICT",
+      "fence": 0,
+      "used": false
+    },
+    {
+      "id": "germany-holder",
+      "status": "RELEASED",
+      "fence": 2,
+      "used": false
+    },
+    {
+      "id": "unclear-request",
+      "status": "CONFLICT",
+      "fence": 0,
+      "used": false
+    },
+    {
+      "id": "unspecified-request",
+      "status": "UNCLEAR",
+      "fence": 0,
+      "used": false
+    },
+    {
+      "id": "cancel-request",
+      "status": "CANCELLED",
+      "fence": 0,
+      "used": false
+    },
+    {
+      "id": "shared-a",
+      "status": "RELEASED",
+      "fence": 3,
+      "used": false
+    },
+    {
+      "id": "shared-b",
+      "status": "RELEASED",
+      "fence": 4,
+      "used": false
+    },
+    {
+      "id": "expiry-holder",
+      "status": "EXPIRED",
+      "fence": 5,
+      "used": false
+    },
+    {
+      "id": "browser-cancel-fixture",
+      "status": "CANCELLED",
+      "fence": 0,
+      "used": false
+    },
+    {
+      "id": "reacquired-holder",
+      "status": "RELEASED",
+      "fence": 6,
+      "used": false
+    },
+    {
+      "id": "35fd50a0-97ba-4471-8c6e-5fa4fdc434c1",
+      "status": "RELEASED",
+      "fence": 1,
+      "used": true
+    }
+  ]
+}

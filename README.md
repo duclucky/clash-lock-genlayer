@@ -6,9 +6,9 @@ ClashLock uses GenLayer consensus to compare declared operation scopes and admit
 temporary protocol locks with current fencing generations. It does not establish
 external data ownership or stop an unintegrated external service from writing.
 
-Category: Projects. The contract and browser application are implemented. Local
-checks,a consequential Studionet lifecycle and browser create/deposit/review are
-verified. Full browser recovery/withdrawal and submission acceptance are being verified.
+Category: Projects. Local checks and the consequential Studionet lifecycle are
+verified. All eight write controls have real browser-wallet evidence, including
+recovery, cancellation and native refunds. Portal review acceptance is not claimed.
 
 ## Live App
 
@@ -81,8 +81,16 @@ contract balance were0GEN at that checkpoint. [Verification](docs/VERIFICATION.m
 [safe journal](docs/evidence/studionet/journal.json),
 [specification and authority matrices](docs/README.md).
 
+The [final checkpoint](docs/evidence/studionet/final-verification.json) verifies
+40 script transactions and9 browser transactions. Two script transactions are
+expected finalized rejections, not successful actions. All12GEN deposited were
+withdrawn through11verified native transfers; escrow,credit and native contract
+balance are0GEN. Fence5 was rejected after fence6 was granted. The browser
+refunds include exact1GEN and2GEN transfers;the latter was reconciled after a
+temporary RPC confirmation error without sending a duplicate.
+
 `npm run check` verifies semantic lint,80Python direct tests,14receipt tests,
-45frontend tests,the real SDK adapter boundary,TypeScript and production build.
+47frontend tests,the real SDK adapter boundary,TypeScript and production build.
 Direct-mode mocked tests are separate from real network consensus evidence.
 
 Hosting uses Vercel's Vite preset,root directory `frontend/`,build command

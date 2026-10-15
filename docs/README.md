@@ -185,7 +185,7 @@ System internals and submission material remain outside the primary experience.
 | Contract count | PASS | One state owner;no pass-through guard |
 | Differentiation | PASS | Incremental epoch-bound occupancy/fences;collision matrix below |
 | Claim-to-code | PASS | Trace matrix below;deployed source/schema and local/network/browser evidence remain distinct |
-| Full lifecycle | PASS_ADMISSION/PENDING_EXECUTION | Complete executable cases;real browser and value-exit evidence remain mandatory |
+| Full lifecycle | PASS_EXECUTION | final-verification.json:40script/9browser transactions,2expected rejections,11native refunds,total12GEN returned,all deposits/fences closed |
 | Scope honesty | PASS | External enforcement,adoption and guaranteed semantic accuracy expressly excluded |
 
 ## Actors,roles and incentives
@@ -265,7 +265,7 @@ No automatic wallet generation or faucet. Existing authorized EOAs provide roles
 | PENDING/RETRYABLE | Check availability | review_request | Detail contextual action | role/time/attempt eligibility,write/finality/reload | VERIFIED_BROWSER:browser-journal.json |
 | HELD | Record protocol action | use_fence | Detail contextual action | fence args,once-only state | VERIFIED_BROWSER:browser-journal.json |
 | HELD | Release | release | Detail contextual action | role/state/time,finality/reload | VERIFIED_BROWSER:browser-journal.json |
-| Pending/retry | Cancel | cancel_request | Detail contextual action | owner,state,write/reload | PENDING_EXECUTION |
+| Pending/retry | Cancel | cancel_request | Detail contextual action | owner,state,write/reload | VERIFIED_BROWSER:browser-journal.json,cancel |
 | Due pending/held | Recover | recover | Detail contextual action | exact deadline,member,credit recipient | VERIFIED_BROWSER:browser-journal.json,recover |
 | Own credit>0 | Withdraw | withdraw | Account | actual SDK provider,credit reload | VERIFIED_BROWSER:browser-journal.json |
 
@@ -371,10 +371,10 @@ tests,TypeScript and production build. MCP config unchanged,N/A mcp:verify.
 | Claim | Contract method/state | View/read | Test | Network evidence |
 |---|---|---|---|---|
 | Different words can overlap | review_request/nondet snapshot | get_attempts,get_request | frozen paraphrase,independent validator mismatch | journal.json: review-opponent FINALIZED SUCCESS,CONFLICT,own credit/native withdrawal |
-| Live exclusion and shared reading | review_request/HELD/fence | is_fence_valid,list_requests | READ/READ,disjoint/conflict,stale fence | journal.json: review-disjoint and review-shared-b HELD;expired-use FINALIZED ERROR;reacquisition check pending |
-| Own refund in every terminal path | release/cancel_request/recover/review_request | get_credit,get_accounting | all value/recovery/duplicate/time cases | journal.json:release/conflict/unclear/cancel native exits verified;browser-journal.json:primary withdrawal;expiry exit pending |
+| Live exclusion and shared reading | review_request/HELD/fence | is_fence_valid,list_requests | READ/READ,disjoint/conflict,stale fence | journal.json:review-disjoint/shared HELD;expired-use and stale-use FINALIZED ERROR unchanged;reacquired fence6>old5 |
+| Own refund in every terminal path | release/cancel_request/recover/review_request | get_credit,get_accounting | all value/recovery/duplicate/time cases | final-verification.json:12GEN received=withdrawn,escrow/credit/native0GEN;11native children;browser recovery/cancel and1GEN/2GEN refund proof |
 | Provenance before consequence | _binding/request digest,source gate | get_policy,get_namespace | valid digest wrong objective/actor/version matrix | journal.json:deployedSourceMatches=true,18method schema,open_request payable=true;network-preflight.json |
-| Real browser journey | typed adapter writes/finality/reload | all product views | actualSDK+UI controls and lifecycle | browser-journal.json:create/deposit/review/use/release/recover/withdraw finalized SUCCESS;cancel pending |
+| Real browser journey | typed adapter writes/finality/reload | all product views | actualSDK+UI controls and lifecycle | browser-journal.json:all eight write controls finalized SUCCESS and reloaded canonical state;extra recovery/cancel fixtures were created by script |
 
 ## Analogue and differentiation matrix
 
