@@ -11,7 +11,8 @@ function validAddress(value:string|undefined,name:string):asserts value is `0x${
  if(!value||!isAddress(value)||/^0x0{40}$/i.test(value))throw new Error(`${name} is missing or invalid. No transaction was sent.`);
 }
 function config(input?:Config){return {address:input?.address??import.meta.env.VITE_CONTRACT_ADDRESS,endpoint:input?.endpoint??new URL('/genlayer-rpc',window.location.origin).href};}
-async function safe<T>(fn:()=>Promise<T>):Promise<T>{const previous=console.error;console.error=()=>{};try{return await fn();}finally{console.error=previous;}}
+async function safe<T>(fn:()=>Promise<T>):Promise<T>{const previous=console.error,warn=console.warn;console.error=console.warn=()=>{};try{return await fn();}finally{console.error=previous;console.warn=warn;}}
+function failureCode(error:unknown):number|undefined {let current=error;for(let i=0;i<8&&current&&typeof current==='object';i++){const item=current as {code?:number;cause?:unknown};if(Number.isInteger(item.code))return item.code;current=item.cause;}return undefined;}
 export async function submitWrite(session:Session,configuration:Config,command:Command,args:(string|number)[],valueGEN:'0'|'1'){
  validAddress(session.account,'Connected wallet address');validAddress(configuration.address,'Contract address');
  validAddress(studionet.consensusMainContract?.address,'Network system address');
@@ -52,7 +53,7 @@ export function createAdapter(session:Session={},input?:Config):ContractAdapter 
     await new Promise(resolve=>setTimeout(resolve,3000));
    }
    throw new Error('Confirmation is still pending. Inspect the saved transaction link before sending another action.');
-  }catch(error){progress('Failed',hash);if(error instanceof Error&&/No transaction|GEN value|Reconnect|Consensus|finalized transaction|still pending|did not complete/.test(error.message))throw error;throw new Error('The wallet or network could not complete this action. Check the transaction link, then refresh before retrying.');}
+  }catch(error){progress('Failed',hash);if(error instanceof Error&&/No transaction|GEN value|Reconnect|Consensus|finalized transaction|still pending|did not complete/.test(error.message))throw error;const code=failureCode(error);throw new Error(`The wallet or network could not complete this action${code!==undefined?` (code ${code})`:''}. Check the transaction link, then refresh before retrying.`);}
  }
  return {configured:!!settings.address,workspaces:()=>read('list_namespaces'),workspace:id=>read('get_namespace',[id]),requests:id=>read('list_requests',[id]),request:id=>read('get_request',[id]),activity:owner=>read('get_activity',[owner]),credit:owner=>read('get_credit',[owner]),attempts:id=>read('get_attempts',[id]),write};
 }

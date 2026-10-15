@@ -1,0 +1,27 @@
+{
+  "production": false,
+  "valueGEN": "0",
+  "sourceSHA256": "cf1ed44988a83685944da1efaf3ff0d0c37deb86a53e4379f9958d1b671cf2f1",
+  "expected": {
+    "paraphrase": "OVERLAP",
+    "disjoint": "DISJOINT",
+    "unclear": "UNCLEAR",
+    "injection": "OVERLAP"
+  },
+  "transactionHash": "0x7d4a4a9ac1ab4a75808f420727351df2869b78a239da71595cc54b26d0ea570d",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "contractAddress": "0x918f75cE79B7276BBF24c8d589d6bb1584B014af",
+  "report": {
+    "classes": {
+      "disjoint": "DISJOINT",
+      "injection": "OVERLAP",
+      "paraphrase": "OVERLAP",
+      "unclear": "UNCLEAR"
+    },
+    "stage": "COMPLETE"
+  },
+  "matchesSource": true,
+  "passed": true
+}

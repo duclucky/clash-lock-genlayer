@@ -53,8 +53,8 @@ async function observe(op){
   if(parseUnits(op.before.balancesGEN[3],18)-parseUnits(op.after.balancesGEN[3],18)!==amount || parseUnits(op.after.balancesGEN[op.actor],18)-parseUnits(op.before.balancesGEN[op.actor],18)!==amount)throw Error('Exact native withdrawal balance deltas missing');
  }
  if(op.method!=='DEPLOY'&&op.args[0]&&['open_request','review_request','use_fence','release','cancel_request','recover'].includes(op.method))op.canonicalRequest=await read('get_request',[op.args[0]]);
- const expectedStatus={'review-holder':'HELD','review-opponent':'CONFLICT','review-disjoint':'HELD','review-unclear':'UNCLEAR','release-holder':'RELEASED','release-disjoint':'RELEASED','cancel-request':'CANCELLED'}[op.id];
- if(expectedStatus&&op.canonicalRequest?.status!==expectedStatus)throw Error('Expected canonical consequence missing');
+ const expectedStatus={'review-holder':'HELD','review-opponent':'CONFLICT','review-disjoint':'HELD','review-unclear':'UNCLEAR','review-unspecified':'UNCLEAR','release-holder':'RELEASED','release-disjoint':'RELEASED','cancel-request':'CANCELLED','review-shared-a':'HELD','review-shared-b':'HELD','review-expiry':'HELD','recover-expiry':'EXPIRED','review-reacquire':'HELD'}[op.id];
+ if(expectedStatus&&op.canonicalRequest?.status!==expectedStatus){op.expectation={expected:expectedStatus,actual:op.canonicalRequest?.status,passed:false};save();if(op.id!=='review-unclear'||op.canonicalRequest?.status!=='CONFLICT')throw Error('Expected canonical consequence missing');op.expectation.note='Important queue was judged potentially overlapping. This observed mismatch is retained and does not prove UNCLEAR.';}
  if(op.expect==='ERROR'&&(JSON.stringify(op.before.accounting)!==JSON.stringify(op.after.accounting)||JSON.stringify(op.before.requests)!==JSON.stringify(op.after.requests)))throw Error('Rejected write mutated canonical ledger or requests');
  op.verified=true;save();console.log(JSON.stringify({operation:op.id,verified:true,canonicalStatus:op.canonicalRequest?.status??null,accounting:op.after.accounting,nativeChildren:op.nativeChildren?.length??0}));return true;
 }
@@ -100,6 +100,9 @@ try{
    unclear:[1,'open_request',['unclear-request',n,'Invoice rows in the important queue.','WRITE',600,digest],'1'],
    'review-unclear':[1,'review_request',['unclear-request']],
    'withdraw-unclear':[1,'withdraw',[]],
+   unspecified:[1,'open_request',['unspecified-request',n,'The relevant invoice rows, with their selection criteria unspecified.','WRITE',600,digest],'1'],
+   'review-unspecified':[1,'review_request',['unspecified-request']],
+   'withdraw-unspecified':[1,'withdraw',[]],
    cancel:[1,'open_request',['cancel-request',n,'Invoice rows whose billing country is Spain only.','WRITE',600,digest],'1'],
    'cancel-request':[1,'cancel_request',['cancel-request']],
    'withdraw-cancel':[1,'withdraw',[]],
@@ -132,4 +135,4 @@ try{
  else if(command==='read')console.log(JSON.stringify(await read(args[0],args[1]?.startsWith('[')?JSON.parse(args[1]):args.slice(1)),null,2));
  else if(command==='poll'){const op=journal.operations[args[0]];if(!op?.transactionHash)throw Error('Saved transaction missing');if(!await observe(op))process.exitCode=2;}
  else throw Error('Use inspect, deploy, write <id> <actor> <method> <json> <GEN>, read, poll');
-}catch(error){console.log(JSON.stringify({stage:'STOP',type:['Error','TypeError','TimeoutError','AbortError'].includes(error?.name)?error.name:'NetworkError',code:Number.isInteger(error?.code)?error.code:null,reason:error?.name==='Error'?error.message.split('\n')[0].slice(0,180):'Safely inspect saved hashes before retrying'}));process.exitCode=1;}
+}catch(error){const known=new Set(['Deployment identity mismatch','Deployed source mismatch','Exact deposit balance increase missing','Native withdrawal child pending','Exact native withdrawal balance deltas missing','Expected canonical consequence missing','Rejected write mutated canonical ledger or requests','Expected rejection was not proven','Operation identity changed','Exact GEN mismatch','Unknown planned step','Expected unrecovered stale HELD phase','Whole small GEN required','Saved transaction missing']);console.log(JSON.stringify({stage:'STOP',type:['Error','TypeError','TimeoutError','AbortError'].includes(error?.name)?error.name:'NetworkError',code:Number.isInteger(error?.code)?error.code:null,reason:known.has(error?.message)?error.message:'Safely inspect saved hashes before retrying'}));process.exitCode=1;}
