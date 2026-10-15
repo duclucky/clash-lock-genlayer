@@ -126,6 +126,7 @@ try{
    'stale-use':[0,'use_fence',['reacquired-holder',journal.operations['review-expiry']?.canonicalRequest?.fence??0],'0','ERROR'],
    'release-reacquire':[0,'release',['reacquired-holder']],
    'withdraw-reacquire':[0,'withdraw',[]],
+   'browser-cancel-fixture':[0,'open_request',['browser-cancel-fixture',n,'Invoice rows whose billing country is Germany only.','WRITE',600,digest],'1'],
   };
   if(!steps[id])throw Error('Unknown planned step');
   if(id==='expired-use'){const r=await read('get_request',['expiry-holder']);if(r.status!=='HELD')throw Error('Expected unrecovered stale HELD phase');while(Date.now()/1000<r.expires_at+2)await new Promise(resolve=>setTimeout(resolve,Math.min(4000,(r.expires_at+2-Date.now()/1000)*1000)));}

@@ -230,3 +230,48 @@ Regression first failed,then passed after disabling actions while reading.
 History now maps raw verdict enums to the established user-facing labels.
 No design tokens/layout/navigation changed.44frontend tests are now expected;
 the latest full grader exercised the changed suite and passed.
+
+Production UI checks:375x812 help route returned documentWidth360<=375,
+navLinks3,overflow=false;812x375 returned documentWidth797<=812,overflow=false.
+Temporary viewport overrides were reset. Emulated prefers-reduced-motion returned
+true and actual computed button transition0s;decorative SVGs all aria-hidden=true.
+Media emulation was reset. Native-mobile-only theme/safe-area requirements are
+N/A for this web product;the established light theme remains unchanged.
+
+The finality/reload correction was redeployed via the upload-gated wrapper:
+21allowed source files,no environment files;production deployment
+ dpl_5xbie7rm5WUe1SyuG4CTNkBnBQEF READY,alias unchanged.
+The wrapper first refused generated grading reports;adding their ignore patterns
+resolved it before any upload. This verifies the gate rejects unexpected files.
+
+A30second MP4 screenshot walkthrough was generated from actual saved Chrome
+screens;ffprobe duration29.958333,size307785bytes. It is labeled accurately in
+DEMO.md and does not invent a YouTube/X link or a continuous wallet recording.
+
+Live READ/READ evidence:review-shared-b finalized HELD with a current overlapping
+READ peer. review-shared-b.after captures both reservations held;review relations
+are independently available through get_attempts. Release/refund evidence is
+being completed before expiry tests.
+
+## Fresh acceptance check (2026-10-15,18:39 ICT)
+
+`PYTHONUTF8=1 npm run check` returned recognized `ClashLockContract`,18methods
+(10view,8write),80direct tests passed,14receipt tests passed and44frontend tests
+passed. TypeScript and Vite production build passed;total138tests,zero critical
+skips. The SDK bundle size advisory remains visible.
+
+The unchanged grader was rerun with project `.venv/Scripts` first on PATH,
+PYTHONUTF8=1,GENVM_VERSION=v0.2.16,`-Project D:\Genlayer Project\clash-lock
+-Category projects`,the real public repository/Explorer and877character notes.
+Actual output: `Summary: 0 BLOCKER, 1 WARN, 6 auto-verified OK`;
+`npm run check: PASS`;`gltest: PASS`;all five gates PASS;`VERDICT: GATE OK`.
+Exit1 still represents the reviewed private nonpayable-helper warning.
+The grader SHA256 remains
+0e90ae93c72c9464b4b995db6896cf08ea8f8d14b66a847156012f830e896746.
+
+Expired-use finalized ERROR with unchanged canonical requests and accounting.
+The UI now describes the expired reservation accurately instead of repeating
+its old success reason;the existing recovery regression failed before this
+small copy correction and passed after it. Layout,tokens and navigation remain
+unchanged. Browser recovery/cancellation and the final all-refunds checkpoint
+are still pending. The submission packet records those remaining items.

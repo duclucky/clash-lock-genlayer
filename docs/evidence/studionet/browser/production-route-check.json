@@ -1,0 +1,62 @@
+[
+  {
+    "h1": "Different words.Same work.One clear boundary.",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/"
+  },
+  {
+    "h1": "Make room for good work.",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/workspaces"
+  },
+  {
+    "h1": "Create a workspace.",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/workspaces/new"
+  },
+  {
+    "h1": "What needs a little space?",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/workspaces/3ec420db-df10-4fac-b07a-e6a692b73f5f/request"
+  },
+  {
+    "h1": "Reservation detail",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/requests/35fd50a0-97ba-4471-8c6e-5fa4fdc434c1"
+  },
+  {
+    "h1": "Your activity, in one place.",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/activity"
+  },
+  {
+    "h1": "Work ends. Your deposit returns.",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/account"
+  },
+  {
+    "h1": "Less collision. More coordination.",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/help"
+  },
+  {
+    "h1": "Agent billing workspace",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/workspaces/3ec420db-df10-4fac-b07a-e6a692b73f5f"
+  },
+  {
+    "h1": "Released",
+    "navLinks": 3,
+    "overflow": false,
+    "route": "/requests/35fd50a0-97ba-4471-8c6e-5fa4fdc434c1"
+  }
+]

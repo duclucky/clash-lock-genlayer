@@ -178,13 +178,13 @@ System internals and submission material remain outside the primary experience.
 | Evidence availability | PASS | Two actual target-runtime policy fetches and8/8 semantic cases each;see admission diagnostic records |
 | Evidence authenticity | PASS | Complete authority matrix below;constitutive sender-authored intent is not external execution evidence |
 | Equivalence | PASS | Exact active IDs and normalized overlap classes;independent replay |
-| Consequence | PASS_ADMISSION | Live fencing authority gates own protected action and future admission;execution pending |
+| Consequence | PASS | Canonical HELD/CONFLICT/UNCLEAR and own credit/native exits verified in journal.json |
 | Adversarial | PASS | Incumbent benefits from broad conflict,newcomer from narrow conflict |
-| State model | PASS_ADMISSION | Keyed state,immutable definitions,append-only attempts,exact time guards,all deposits recoverable |
+| State model | PASS | Keyed state,immutable definitions,append-only attempts,exact time guards;direct tests and live expired-use rejection |
 | Reuse | PASS | Three proposed consumer interfaces in Adoption path |
 | Contract count | PASS | One state owner;no pass-through guard |
 | Differentiation | PASS | Incremental epoch-bound occupancy/fences;collision matrix below |
-| Claim-to-code | PASS_ADMISSION | Trace matrix below,including negative tests and future execution artifacts |
+| Claim-to-code | PASS | Trace matrix below;deployed source/schema and local/network/browser evidence remain distinct |
 | Full lifecycle | PASS_ADMISSION/PENDING_EXECUTION | Complete executable cases;real browser and value-exit evidence remain mandatory |
 | Scope honesty | PASS | External enforcement,adoption and guaranteed semantic accuracy expressly excluded |
 
@@ -260,14 +260,14 @@ No automatic wallet generation or faucet. Existing authorized EOAs provide roles
 
 | Canonical state | User action | Contract write | UI component | Frontend test | Evidence status |
 |---|---|---|---|---|---|
-| New namespace | Create | create_namespace | CreateWorkspace define/review | create validation,actual adapter parameters | PENDING_EXECUTION |
-| Open namespace | Request1GEN | open_request | RequestPage define/review | payable adapter exact sender/value,digest | PENDING_EXECUTION |
-| PENDING/RETRYABLE | Check availability | review_request | Detail contextual action | role/time/attempt eligibility,write/finality/reload | PENDING_EXECUTION |
-| HELD | Record protocol action | use_fence | Detail contextual action | fence args,once-only state | PENDING_EXECUTION |
-| HELD | Release | release | Detail contextual action | role/state/time,finality/reload | PENDING_EXECUTION |
+| New namespace | Create | create_namespace | CreateWorkspace define/review | create validation,actual adapter parameters | VERIFIED_BROWSER:browser-journal.json |
+| Open namespace | Request1GEN | open_request | RequestPage define/review | payable adapter exact sender/value,digest | VERIFIED_BROWSER:browser-journal.json |
+| PENDING/RETRYABLE | Check availability | review_request | Detail contextual action | role/time/attempt eligibility,write/finality/reload | VERIFIED_BROWSER:browser-journal.json |
+| HELD | Record protocol action | use_fence | Detail contextual action | fence args,once-only state | VERIFIED_BROWSER:browser-journal.json |
+| HELD | Release | release | Detail contextual action | role/state/time,finality/reload | VERIFIED_BROWSER:browser-journal.json |
 | Pending/retry | Cancel | cancel_request | Detail contextual action | owner,state,write/reload | PENDING_EXECUTION |
 | Due pending/held | Recover | recover | Detail contextual action | exact deadline,member,credit recipient | PENDING_EXECUTION |
-| Own credit>0 | Withdraw | withdraw | Account | actual SDK provider,credit reload | PENDING_EXECUTION |
+| Own credit>0 | Withdraw | withdraw | Account | actual SDK provider,credit reload | VERIFIED_BROWSER:browser-journal.json |
 
 ## Evidence policy and authority matrix
 
@@ -370,11 +370,11 @@ tests,TypeScript and production build. MCP config unchanged,N/A mcp:verify.
 
 | Claim | Contract method/state | View/read | Test | Network evidence |
 |---|---|---|---|---|
-| Different words can overlap | review_request/nondet snapshot | get_attempts,get_request | frozen paraphrase,independent validator mismatch | PENDING:production conflict review |
-| Live exclusion and shared reading | review_request/HELD/fence | is_fence_valid,list_requests | READ/READ,disjoint/conflict,stale fence | PENDING:concurrent reservations and denied stale use |
-| Own refund in every terminal path | release/cancel_request/recover/review_request | get_credit,get_accounting | all value/recovery/duplicate/time cases | PENDING:release/conflict/unclear/cancel/expiry+native exits |
-| Provenance before consequence | _binding/request digest,source gate | get_policy,get_namespace | valid digest wrong objective/actor/version matrix | PENDING:deployed source+schema binding |
-| Real browser journey | typed adapter writes/finality/reload | all product views | actualSDK+UI controls and lifecycle | PENDING:browser-wallet transactions |
+| Different words can overlap | review_request/nondet snapshot | get_attempts,get_request | frozen paraphrase,independent validator mismatch | journal.json: review-opponent FINALIZED SUCCESS,CONFLICT,own credit/native withdrawal |
+| Live exclusion and shared reading | review_request/HELD/fence | is_fence_valid,list_requests | READ/READ,disjoint/conflict,stale fence | journal.json: review-disjoint and review-shared-b HELD;expired-use FINALIZED ERROR;reacquisition check pending |
+| Own refund in every terminal path | release/cancel_request/recover/review_request | get_credit,get_accounting | all value/recovery/duplicate/time cases | journal.json:release/conflict/unclear/cancel native exits verified;browser-journal.json:primary withdrawal;expiry exit pending |
+| Provenance before consequence | _binding/request digest,source gate | get_policy,get_namespace | valid digest wrong objective/actor/version matrix | journal.json:deployedSourceMatches=true,18method schema,open_request payable=true;network-preflight.json |
+| Real browser journey | typed adapter writes/finality/reload | all product views | actualSDK+UI controls and lifecycle | browser-journal.json:create/deposit/review/use/release/withdraw finalized SUCCESS;cancel/recover pending |
 
 ## Analogue and differentiation matrix
 

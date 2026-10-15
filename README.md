@@ -14,6 +14,7 @@ verified. Full browser recovery/withdrawal and submission acceptance are being v
 
 [Open ClashLock](https://clash-lock-genlayer.vercel.app).
 Production HTTP200,project title,React root and same-origin Studionet RPC verified.
+[Demo screenshot walkthrough](docs/DEMO.md).
 
 ## Deployed Contract
 
