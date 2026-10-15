@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {receipt,requireSuccess,childProof} from '../scripts/receipts.mjs';
+const address='0x'+'11'.repeat(20),hash='0x'+'22'.repeat(32);
+test('raw Studio success is separate from status',()=>{assert.equal(requireSuccess({status:7,to_address:address,result_name:'MAJORITY_AGREE',consensus_data:{leader_receipt:[{execution_result:'SUCCESS'}]}},hash).executionResult,'SUCCESS');});
+test('normalized SDK success recognized',()=>assert.equal(requireSuccess({status:'FINALIZED',contractAddress:address,resultName:'MAJORITY_AGREE',txExecutionResultName:'SUCCESS'},hash).contractAddress,address));
+for(const execution of ['ERROR','UNDETERMINED',undefined])test(`finality alone never proves ${execution}`,()=>assert.throws(()=>requireSuccess({status:'FINALIZED',execution_result:execution,result_name:'MAJORITY_AGREE'},hash)));
+test('accepted success is not final',()=>assert.throws(()=>requireSuccess({status:'ACCEPTED',execution_result:'SUCCESS',result_name:'MAJORITY_AGREE'},hash)));
+test('unknown nested config never appears in projection',()=>assert.deepEqual(Object.keys(receipt({node_config:{private_key:'fixture-not-a-real-secret'}},hash)),['transactionHash','status','executionResult','consensusResult','contractAddress']));
+const native={status:7,from_address:address,to_address:address,value:(10n**18n).toString(),triggered_by:hash};const expected={sender:address,recipient:address,valueGEN:'1',parentHash:hash};
+test('EOA child accepts exact parent sender recipient GEN only',()=>assert.equal(childProof(native,hash,expected).valueGEN,'1'));
+for(const change of [{value:'1'},{status:'PENDING'},{error:'failure'},{triggered_by:'wrong'},{from_address:'wrong'},{to_address:'wrong'}])test(`native mismatch ${Object.keys(change)[0]} rejected`,()=>assert.throws(()=>childProof({...native,...change},hash,expected)));
